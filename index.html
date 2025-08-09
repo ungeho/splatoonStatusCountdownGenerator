@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>FFXIV Splatoon Preset JSON Generator</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>FFXIV Splatoon Status Countdown Generator</h1>
+
+        <div class="card">
+            <div class="grid">
+                <label class="field">
+                    <span>プリセット名</span>
+                    <input id="presetName" type="text" placeholder="任意のPreset名(必須)" value="exampleName" required />
+                </label>
+
+                <label class="field">
+                    <span>グループ名</span>
+                    <input id="groupName" type="text" placeholder="任意のグループ名(必須)" value="MyGroup" required />
+                </label>
+
+                <label class="field">
+                    <span>Zone ID</span>
+                    <input id="zoneId" type="number" inputmode="numeric" placeholder="zoneId(必須)" value="0" required />
+                </label>
+
+                <label class="field">
+                    <span>Status ID</span>
+                    <input id="statusId" type="number" inputmode="numeric" placeholder="statusId(必須)" value="0"
+                        required />
+                </label>
+
+                <label class="field">
+                    <span>カウントダウン開始秒数</span>
+                    <input id="startSeconds" type="number" inputmode="numeric" min="1" step="1" placeholder="整数値(必須)"
+                        value="5" required />
+                </label>
+
+                <label class="field">
+                    <span>サブ秒しきい値（この秒数以下は 0.1 秒刻み）</span>
+                    <input id="subSecondThreshold" type="number" inputmode="numeric" min="0" step="1"
+                        placeholder="整数値(任意)" value="0" />
+                </label>
+
+                <label class="field">
+                    <span>overlayVOffset（文字を表示する高さ）</span>
+                    <input id="overlayVOffset" type="number" inputmode="decimal" step="0.1" placeholder="小数点以下一桁までの実数(必須)"
+                        value="1.5" required />
+                </label>
+
+                <label class="field">
+                    <span>overlayFScale（文字の大きさ）</span>
+                    <input id="overlayFScale" type="number" inputmode="decimal" step="0.1" placeholder="小数点以下一桁までの実数(必須)"
+                        value="3.0" required />
+                </label>
+            </div>
+
+            <div class="actions">
+                <button id="btn-generate" class="primary">JSON 生成</button>
+                <button id="btn-copy-min" disabled>コピー</button>
+            </div>
+        </div>
+
+        <!-- ここから2カラム：左=出力、右=16進→10進コンバーター -->
+        <div class="two-col">
+            <!-- 左：出力 -->
+            <div class="col">
+                <div class="out">
+                    <div class="head">
+                        <h3>出力（1行のみ）</h3>
+                        <span class="bytes" id="min-bytes"></span>
+                    </div>
+                    <textarea id="minified" readonly placeholder="ここに 1 行 JSON が表示されます"></textarea>
+                </div>
+            </div>
+
+            <!-- 右：16進→10進 変換機 -->
+            <div class="col">
+                <div class="out">
+                    <div class="head">
+                        <h3>16進 → 10進 変換</h3>
+                        <span class="bytes" id="hex-hint">クリックでコピー可</span>
+                    </div>
+
+                    <div class="grid">
+                        <label class="field">
+                            <span>エクスプローラーで参照したStatus ID(16進数)を変換してPresetのStatus Id(10進数)に入力する。</span>
+                            <!-- <span>16進数（0x / # 付き可、複数は空白/改行区切り）</span> -->
+                            <textarea id="hex-input" placeholder="例: 0xC8000000 3355443200 #FFFF00"></textarea>
+                        </label>
+                    </div>
+
+                    <div id="hex-results" class="hex-results" aria-live="polite">
+                        <!-- 変換結果がタイルで並ぶ（クリックでコピー） -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
