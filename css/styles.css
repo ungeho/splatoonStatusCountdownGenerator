@@ -187,3 +187,31 @@ small {
 .hex-pill small {
     color: var(--muted);
 }
+
+/* 追加・変更：select を既存スタイルに合わせる */
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    color: var(--text);
+    background: #0f1218;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    outline: none;
+    /* select のための最小幅対策（iOS等） */
+    min-height: 40px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent);
+}
