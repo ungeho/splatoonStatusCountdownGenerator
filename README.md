@@ -1,6 +1,6 @@
 # Splatoon Status Countdown Preset JSON Generator
 
-Splatoon Plugin で　バフやデバフのカウントダウンを行う **Preset JSON** を簡単に生成する Web ツールです。  
+FFXIV Splatoon Plugin で　バフやデバフのカウントダウンを行う **Preset JSON** を簡単に生成する Web ツールです。  
   
 ---
 
