@@ -68,6 +68,7 @@ function placeholderArrayFromSelection(val) {
         case "1": return ["<1>"];
         case "t1t2": return ["<t1>", "<t2>"];
         case "h1h2": return ["<h1>", "<h2>"];
+        case "t1t2h1h2": return ["<t1>", "<t2>","<h1>", "<h2>"];
         case "d1d2": return ["<d1>", "<d2>"];
         case "d1d2d3d4": return ["<d1>", "<d2>", "<d3>", "<d4>"];
         case "self":
